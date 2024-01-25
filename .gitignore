@@ -1,0 +1,8 @@
+# Config
+.vscode/
+.idea/
+
+# GenForm-NPM
+**/node_modules
+
+# All minified files
