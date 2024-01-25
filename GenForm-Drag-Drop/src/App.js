@@ -18,7 +18,6 @@ function App() {
   const [selectedElement, setSelectedElement] = useState([]);
   const [formElems, setFormElems] = useState([]);
   const [formParams, setFormParams] = useState({});
-  const [isCopied, setIsCopied] = useState(false);
   const availableElements = [
     { id: 1, typeName: 'Text' },
     { id: 2, typeName: 'Range' },
@@ -57,26 +56,6 @@ function App() {
     return str;
   }
 
-  const assembleJson = () => {
-    const json = '{' + convertElementToString(formElems) + ',' + convertParamsToString(formParams) + '}'
-    return JSON.parse(json);
-  }
-
-  const copyJson = () => {
-    navigator.clipboard.writeText(assembleJson());
-    setIsCopied(true);
-    setTimeout(() => {
-      setIsCopied(false);
-    }, 2000)
-  }
-
-  const afterCopied = () => {
-    if (isCopied) {
-      return "Copié!"
-    } else {
-      return ""
-    }
-  }
   const clearJson = () => {
     setFormElems([])
     setFormParams([])
