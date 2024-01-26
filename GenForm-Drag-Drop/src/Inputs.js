@@ -19,9 +19,9 @@ const Inputs = ({ id, name, value, modifyJson }) => {
 
   return (
     <div>
-      <input type="text" defaultValue={inputName} onChange={e => setInputName(e.target.value.toLowerCase())} disabled={isDisabled}></input>
+      <input type="text" defaultValue={inputName} onChange={e => setInputName(e.target.value.toLowerCase())} disabled={isDisabled} placeholder='Enter an attribute key'></input>
       <input type="text" defaultValue={inputValue} name={inputValue}
-        onChange={e => setInputValue(inputName === 'type' ? e.target.value.toLowerCase() : e.target.value)} />
+        onChange={e => setInputValue(inputName === 'type' ? e.target.value.toLowerCase() : e.target.value)} disabled={inputName === 'type'} placeholder={inputName.length > 0 ? 'Enter ' + inputName + ' value' : ''} />
     </div>
   )
 }
