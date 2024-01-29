@@ -17,5 +17,8 @@
 .title {
   color: #ff2b42;
   text-align: center;
-  margin: auto;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }

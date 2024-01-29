@@ -7,6 +7,8 @@ import 'react18-json-view/src/style.css'
 import Selector from './Selector'
 import './App.css';
 
+import EndPresentation from './EndPresentation'
+
 // const FormElement = ({ id, name, onClick }) => (
 //   <div key={id} onClick={() => onClick(id)} style={{ cursor: 'pointer', margin: '5px' }}>
 //     {name}
@@ -108,7 +110,7 @@ function App() {
       <h1 className="title">GenForm</h1>
       <div className="App" style={{ display: 'flex' }}>
         <div style={{ flex: '1', border: '1px solid #ddd', padding: '10px' }}>
-          <h2>Form Elements</h2>
+          <h2 style={{ marginTop: "0px", marginBottom: '10px', height: 'fit-content' }}>Form Elements</h2>
           {selectedElement.map((element, index) => (
             <div key={index}>
               {element}
@@ -117,12 +119,12 @@ function App() {
         </div>
 
         <div style={{ flex: '1', border: '1px solid #ddd', padding: '10px' }}>
-          <h2>Form Preview</h2>
+          <h2 style={{ marginTop: "0px", marginBottom: '10px' }}>Form Preview</h2>
           {createForm()}
         </div>
 
         <div style={{ flex: '1', border: '1px solid #ddd', padding: '10px' }}>
-          <h2>Final JSON :</h2>
+          <h2 style={{ marginTop: "0px", marginBottom: '10px' }}>Final JSON</h2>
           <JsonView src={formJSON} theme='vscode' />
           {/* Copier le json <FaCopy style={{ cursor: 'pointer' }} onClick={() => {
             copyJson()
@@ -133,6 +135,7 @@ function App() {
         </div>
       </div>
       {/* <Personalize formElements={formElems} /> */}
+      <EndPresentation />
     </div>
   );
 }
