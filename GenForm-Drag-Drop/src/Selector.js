@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
 import Inputs from './Inputs';
+import './Selector.css';
 
 const Selector = ({ elementTypeKey, typeName, addValue }) => {
   const [id, setId] = useState(0)
@@ -61,22 +62,24 @@ const Selector = ({ elementTypeKey, typeName, addValue }) => {
       <Popup trigger={<button className="button"> {typeName} </button>} modal>
         {close => (
           <div className="modal">
-            <button className="close" onClick={close}>
-              &times;
-            </button>
-            <div className="header"> Choisissez les paramètres </div>
+            <div className="container">
+              <button className="close" onClick={close}>
+                &times;
+              </button>
+            </div>
+            <div className="header"> Choose Attributes </div>
             <div className="content">
             </div>
             <div>
               {showInputs()}
             </div>
             <div className="actions">
-              <button onClick={() => addInput()}> Ajouter un champs</button>
+              <button onClick={() => addInput()}> Add a new attribute </button>
               <button className="button" onClick={() => {
                 close()
                 addingElementToForm()
               }}>
-                Valider
+                Validate
               </button>
             </div>
           </div>
