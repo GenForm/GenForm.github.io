@@ -18,6 +18,13 @@ function Personalize({ formJSON }) {
     applyStyles();
   }, [formJSON, css]);
 
+  useEffect(() => {
+    if (formJSON.elems.length === 0) {
+      setCss({});
+      setSelectedInput('');
+    }
+  }, [formJSON.elems]);
+
   const handleCssChange = (elem) => {
     const newCss = elem.target.value;
     setCss({ ...css, [selectedInput]: newCss });
@@ -32,8 +39,8 @@ function Personalize({ formJSON }) {
   };
 
   return (
-    <div className="Personnalize">
-      <div id="PersonnalizeStyle">
+    <div className="Personalize" style={{ display: 'flex' }}>
+      <div id="PersonalizeStyle" style={{ flex: '1', border: '1px solid #ddd', padding: '10px' }}>
         <div id="container_label">
           <label>Select the input</label>
           <select value={selectedInput} onChange={(e) => setSelectedInput(e.target.value)}>
