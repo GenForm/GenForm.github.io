@@ -1,17 +1,17 @@
 import { useState, useEffect } from 'react';
-import './Personnalize.css';
+import './Personalize.css';
 
-function Personnalize({ formJSON }) {
+function Personalize({ formJSON }) {
   const [selectedInput, setSelectedInput] = useState('');
   const [css, setCss] = useState({});
 
   const applyStyles = () => {
-    for (const inputName in css) {
+    Object.keys(css).forEach(inputName => {
       const elem = document.querySelector(`[name="${inputName}"]`);
       if (elem) {
         elem.style.cssText = css[inputName];
       }
-    }
+    });
   };
 
   useEffect(() => {
@@ -23,7 +23,7 @@ function Personnalize({ formJSON }) {
     setCss({ ...css, [selectedInput]: newCss });
   };
 
-  const PersonnalizeStyle = () => {
+  const PersonalizeStyle = () => {
     if (selectedInput) {
       applyStyles();
     } else {
@@ -37,6 +37,7 @@ function Personnalize({ formJSON }) {
         <div id="container_label">
           <label>Select the input</label>
           <select value={selectedInput} onChange={(e) => setSelectedInput(e.target.value)}>
+            <option value="">Select an option</option>
             {formJSON.elems.map((elem, index) => (
               <option key={index} value={elem.name}>{elem.name}</option>
             ))}
@@ -51,10 +52,10 @@ function Personnalize({ formJSON }) {
           onChange={handleCssChange}
         />
 
-        <button onClick={PersonnalizeStyle}>Apply Style</button>
+        <button onClick={PersonalizeStyle}>Apply Style</button>
       </div>
     </div>
   );
 }
 
-export default Personnalize;
+export default Personalize;

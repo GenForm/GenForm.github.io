@@ -3,7 +3,7 @@ import GenForm from '@genform/react'
 // import { FaCopy } from "react-icons/fa";
 import JsonView from 'react18-json-view'
 import 'react18-json-view/src/style.css'
-//import Personalize from './components/Personnalize';
+import Personalize from './components/Personalize';
 import Selector from './Selector'
 import './App.css';
 
@@ -134,7 +134,7 @@ function App() {
           {/* <div>Personnaliser</div> */}
         </div>
       </div>
-      { /*<Personalize formJSON={formJSON} />*/}
+      <Personalize formJSON={formJSON} />
       <EndPresentation />
     </div>
   );
