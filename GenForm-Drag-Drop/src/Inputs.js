@@ -71,7 +71,7 @@ const Inputs = ({ id, name, value, modifyJson }) => {
       return (
         <>
           <select
-            defaultValue="defOpt"
+            defaultValue=""
             onChange={(e) => setInputName(e.target.value.toLowerCase())}
             required
             style={{
@@ -82,7 +82,7 @@ const Inputs = ({ id, name, value, modifyJson }) => {
               boxSizing: 'unset'
             }}
           >
-            <option value="defOpt" disabled hidden>
+            <option value="" disabled hidden>
               Choose an attribute key
             </option>
             {validAttributes.map((attribute) => {
