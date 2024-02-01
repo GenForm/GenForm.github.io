@@ -41,13 +41,16 @@ const Inputs = ({ id, name, value, modifyJson }) => {
     'value',
     'width'
   ]
+
   useEffect(() => {
     checkReservedInput()
   }, [])
+
   useEffect(() => {
     const transferJson = '"' + inputName + '": "' + inputValue + '"'
     modifyJson(id, transferJson)
   }, [inputName, inputValue])
+
   const checkReservedInput = () => {
     if (inputName === 'type' || inputName === 'name') {
       setIsDisabled(true)
@@ -139,7 +142,11 @@ const Inputs = ({ id, name, value, modifyJson }) => {
             inputName.length > 0 ? 'Enter ' + inputName + ' value' : ''
           }
           required
-          pattern={(inputName === 'required' || inputName === 'disabled') ? '^(true|false)$' : '^[A-Za-z0-9 \-\_]+$'}
+          pattern={
+            inputName === 'required' || inputName === 'disabled'
+              ? '^(true|false)$'
+              : '^[A-Za-z0-9 -_]+$'
+          }
         />
       )
     }

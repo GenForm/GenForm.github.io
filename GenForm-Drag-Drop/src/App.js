@@ -9,12 +9,6 @@ import './App.css'
 
 import EndPresentation from './EndPresentation'
 
-// const FormElement = ({ id, name, onClick }) => (
-//   <div key={id} onClick={() => onClick(id)} style={{ cursor: 'pointer', margin: '5px' }}>
-//     {name}
-//   </div>
-// );
-
 function App() {
   const [formJSON, setFormJSON] = useState({
     elems: [],
@@ -77,6 +71,7 @@ function App() {
     setFormParams([])
     setupDefaultParameters()
   }
+
   const getAllElements = () => {
     availableElements.map((element) =>
       setSelectedElement((prevElem) => [
@@ -191,7 +186,6 @@ function App() {
           <button onClick={() => clearJson()} style={{ cursor: 'pointer' }}>
             Clean JSON
           </button>
-          {/* <div>Personnaliser</div> */}
         </div>
       </div>
       <EndPresentation style={{ padding: '0px', margin: '0px' }} />
