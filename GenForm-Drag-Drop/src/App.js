@@ -3,9 +3,11 @@ import GenForm from '@genform/react'
 // import { FaCopy } from "react-icons/fa";
 import JsonView from 'react18-json-view'
 import 'react18-json-view/src/style.css'
-// import Personalize from './components/Personnalize';
+//import Personalize from './components/Personnalize';
 import Selector from './Selector'
 import './App.css';
+
+import EndPresentation from './EndPresentation'
 
 // const FormElement = ({ id, name, onClick }) => (
 //   <div key={id} onClick={() => onClick(id)} style={{ cursor: 'pointer', margin: '5px' }}>
@@ -19,12 +21,28 @@ function App() {
   const [formElems, setFormElems] = useState([]);
   const [formParams, setFormParams] = useState({});
   const availableElements = [
-    { id: 1, typeName: 'Text' },
-    { id: 2, typeName: 'Range' },
-    { id: 3, typeName: 'Checkbox' },
-    { id: 4, typeName: 'Radio' },
-    { id: 6, typeName: 'Textarea' },
-    { id: 7, typeName: 'Custom' }
+    { id: 0, typeName: 'Button' },
+    { id: 1, typeName: 'Checkbox' },
+    { id: 2, typeName: 'Color' },
+    { id: 3, typeName: 'Date' },
+    { id: 4, typeName: 'Datetime-local' },
+    { id: 5, typeName: 'Email' },
+    { id: 6, typeName: 'File' },
+    { id: 7, typeName: 'Hidden' },
+    { id: 8, typeName: 'Image' },
+    { id: 9, typeName: 'Month' },
+    { id: 10, typeName: 'Number' },
+    { id: 11, typeName: 'Password' },
+    { id: 12, typeName: 'Radio' },
+    { id: 13, typeName: 'Range' },
+    { id: 14, typeName: 'Reset' },
+    { id: 15, typeName: 'Search' },
+    { id: 16, typeName: 'Submit' },
+    { id: 17, typeName: 'Tel' },
+    { id: 18, typeName: 'Text' },
+    { id: 19, typeName: 'Time' },
+    { id: 20, typeName: 'Url' },
+    { id: 21, typeName: 'Week' }
   ];
   const defaultParameters = [
     { '"action"': '"/"' },
@@ -92,7 +110,7 @@ function App() {
       <h1 className="title">GenForm</h1>
       <div className="App" style={{ display: 'flex' }}>
         <div style={{ flex: '1', border: '1px solid #ddd', padding: '10px' }}>
-          <h2>Form Elements</h2>
+          <h2 style={{ marginTop: "0px", marginBottom: '10px', height: 'fit-content' }}>Form Elements</h2>
           {selectedElement.map((element, index) => (
             <div key={index}>
               {element}
@@ -101,22 +119,23 @@ function App() {
         </div>
 
         <div style={{ flex: '1', border: '1px solid #ddd', padding: '10px' }}>
-          <h2>Aperçu formulaire</h2>
+          <h2 style={{ marginTop: "0px", marginBottom: '10px' }}>Form Preview</h2>
           {createForm()}
         </div>
 
         <div style={{ flex: '1', border: '1px solid #ddd', padding: '10px' }}>
-          <h2>Json Souhaité :</h2>
+          <h2 style={{ marginTop: "0px", marginBottom: '10px' }}>Final JSON</h2>
           <JsonView src={formJSON} theme='vscode' />
           {/* Copier le json <FaCopy style={{ cursor: 'pointer' }} onClick={() => {
             copyJson()
           }} />
           {afterCopied()} */}
-          <div onClick={() => clearJson()} style={{ cursor: 'pointer' }}>Vider le Json</div>
+          <button onClick={() => clearJson()} style={{ cursor: 'pointer' }}>Clean JSON</button>
           {/* <div>Personnaliser</div> */}
         </div>
       </div>
-      {/* <Personalize formElements={formElems} /> */}
+      { /*<Personalize formJSON={formJSON} />*/}
+      <EndPresentation />
     </div>
   );
 }

@@ -1,0 +1,10 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+input:disabled {
+  background-color: #FFFFFF;
+  color: black;
+}

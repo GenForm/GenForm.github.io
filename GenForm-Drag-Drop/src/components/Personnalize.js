@@ -1,11 +1,22 @@
+import { useState, useEffect } from 'react';
 import './Personnalize.css';
-import { useState } from 'react';
 
-function Personnalize( {formElements}) {
-  const [selectedInput, setSelectedInput] = useState('name');
+function Personnalize({ formJSON }) {
+  const [selectedInput, setSelectedInput] = useState('');
   const [css, setCss] = useState({});
 
+  const applyStyles = () => {
+    for (const inputName in css) {
+      const elem = document.querySelector(`[name="${inputName}"]`);
+      if (elem) {
+        elem.style.cssText = css[inputName];
+      }
+    }
+  };
 
+  useEffect(() => {
+    applyStyles();
+  }, [formJSON, css]);
 
   const handleCssChange = (elem) => {
     const newCss = elem.target.value;
@@ -13,50 +24,35 @@ function Personnalize( {formElements}) {
   };
 
   const PersonnalizeStyle = () => {
-    const inputElements = document.getElementsByName(selectedInput);
-    for (let element of inputElements) {
-      element.style.cssText = css[selectedInput];
+    if (selectedInput) {
+      applyStyles();
+    } else {
+      console.log("No element selected");
     }
   };
 
   return (
     <div className="Personnalize">
-      <br />
       <div id="PersonnalizeStyle">
         <div id="container_label">
-          <label>Select the input </label>
-
-
+          <label>Select the input</label>
           <select value={selectedInput} onChange={(e) => setSelectedInput(e.target.value)}>
-            {formElements.map((elem, index) => (
-              <option key={index} value={elem.name}>
-                {elem.name}
-              </option>
+            {formJSON.elems.map((elem, index) => (
+              <option key={index} value={elem.name}>{elem.name}</option>
             ))}
           </select>
         </div>
 
-        <br />
         <textarea
-          placeholder='enter your css here'
+          placeholder='Enter your CSS here'
           rows={20}
           cols={30}
-          value={css[selectedInput]}
+          value={css[selectedInput] || ''}
           onChange={handleCssChange}
         />
-        <br />
-        <br />
 
-        <button onClick={PersonnalizeStyle}>Apply style</button>
-        <br />
-        <br />
+        <button onClick={PersonnalizeStyle}>Apply Style</button>
       </div>
-      <div id='div-input'>
-        <input type="text" name="name" placeholder="Nom" />
-        <br />
-        <input type="text" name="pseudonym" placeholder="Pseudonym" />
-      </div>
-
     </div>
   );
 }
