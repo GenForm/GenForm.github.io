@@ -24,6 +24,8 @@ jobs:
 
       - name: Build
         run: npm run build
+        env:
+          CI: false
         working-directory: GenForm-Drag-Drop
 
       - name: Deploy to GitHub Pages
