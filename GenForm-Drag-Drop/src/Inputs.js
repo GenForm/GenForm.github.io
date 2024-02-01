@@ -127,19 +127,19 @@ const Inputs = ({ id, name, value, modifyJson }) => {
           defaultValue={inputValue}
           name={inputValue}
           style={{ width: '170px' }}
-          onChange={(e) =>
+          onChange={(e) => {
             setInputValue(
               inputName === 'type'
                 ? e.target.value.toLowerCase()
                 : e.target.value
             )
-          }
+          }}
           disabled={inputName === 'type'}
           placeholder={
             inputName.length > 0 ? 'Enter ' + inputName + ' value' : ''
           }
           required
-          pattern="[A-Za-z0-9\-_]+"
+          pattern={(inputName === 'required' || inputName === 'disabled') ? '^(true|false)$' : '^[A-Za-z0-9 ]+$'}
         />
       )
     }
