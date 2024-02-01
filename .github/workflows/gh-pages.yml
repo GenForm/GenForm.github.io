@@ -20,17 +20,17 @@ jobs:
 
       - name: Install dependencies
         run: npm install
-        working-directory: GenForm-Drag-Drop
+        working-directory: GenForm-GenView
 
       - name: Build
         run: npm run build
         env:
           CI: false
-        working-directory: GenForm-Drag-Drop
+        working-directory: GenForm-GenView
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./GenForm-Drag-Drop/build
+          publish_dir: ./GenForm-GenView/build
 

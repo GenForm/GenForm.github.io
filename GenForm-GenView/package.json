@@ -1,6 +1,6 @@
 {
   "homepage": "https://genform.github.io",
-  "name": "genform-drag-drop",
+  "name": "genform-genview",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
