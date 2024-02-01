@@ -107,15 +107,25 @@ function App() {
 
   return (
     <div>
-      <h1 className="title">GenForm</h1>
+      <div style={{ display: 'flex', alignItems: 'center' }}>
+        <a href='https://www.npmjs.com/search?q=%40genform' target='_blank' rel='noreferrer' style={{ height: '64px' }}><img src='logo192.png' alt='Logo GenForm - Lien vers NPM' style={{ height: 'inherit' }}></img></a>
+        <h1 className="title">GenForm</h1>
+        <a href='https://github.com/GenForm/GenForm' target='_blank' rel='noreferrer' style={{ height: '64px' }}><img src='github.png' alt='Logo GitHub - Lien vers GitHub' style={{ height: 'inherit' }}></img></a>
+      </div>
       <div className="App" style={{ display: 'flex' }}>
         <div style={{ flex: '1', border: '1px solid #ddd', padding: '10px' }}>
           <h2 style={{ marginTop: "0px", marginBottom: '10px', height: 'fit-content' }}>Form Elements</h2>
-          {selectedElement.map((element, index) => (
-            <div key={index}>
-              {element}
+          <div className='elems-div'>
+            <div className='elems-grid'>
+              {selectedElement.map((element, index) => (
+                <div key={index}>
+                  {element}
+                </div>
+              ))}
             </div>
-          ))}
+          </div>
+          <div style={{ height: '1px', borderTop: '1px solid #ccc', marginTop: '20px', marginBottom: '0px' }}></div>
+          <Personalize formJSON={formJSON} style={{ innerWidth: 'fit-content' }} />
         </div>
 
         <div style={{ flex: '1', border: '1px solid #ddd', padding: '10px' }}>
@@ -134,8 +144,7 @@ function App() {
           {/* <div>Personnaliser</div> */}
         </div>
       </div>
-      <Personalize formJSON={formJSON} />
-      <EndPresentation />
+      <EndPresentation style={{ padding: '0px', margin: '0px' }} />
     </div>
   );
 }

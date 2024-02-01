@@ -22,3 +22,16 @@
   margin-top: 10px;
   margin-bottom: 10px;
 }
+
+.elems-div {
+  overflow-y: auto;
+  height: 35vh;
+  border: #939393 1px solid;
+}
+
+.elems-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 10px;
+  padding: 10px;
+}

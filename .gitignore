@@ -6,3 +6,4 @@
 **/node_modules
 
 # All minified files
+**/build

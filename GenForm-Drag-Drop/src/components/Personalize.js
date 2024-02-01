@@ -21,7 +21,7 @@ function Personalize({ formJSON }) {
   useEffect(() => {
     if (formJSON.elems.length === 0) {
       setCss({});
-      setSelectedInput('');
+      setSelectedInput('defOpt');
     }
   }, [formJSON.elems]);
 
@@ -40,10 +40,10 @@ function Personalize({ formJSON }) {
 
   return (
     <div className="Personalize" style={{ display: 'flex', justifyContent: 'center' }}>
-      <div id="PersonalizeStyle" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', border: '1px solid #ddd', padding: '10px', width: '300px' }}>
+      <div id="PersonalizeStyle" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%' }}>
         <h2 style={{ marginTop: "0px", marginBottom: '10px' }}>Personalize your form</h2>
         <select value={selectedInput} onChange={(e) => setSelectedInput(e.target.value)} style={{ marginBottom: '10px' }}>
-          <option value="">Select an option</option>
+          <option value="defOpt" disabled hidden>Select an option</option>
           {formJSON.elems.map((elem, index) => (
             <option key={index} value={elem.name}>{elem.name}</option>
           ))}
@@ -51,9 +51,8 @@ function Personalize({ formJSON }) {
 
         <textarea
           placeholder='Enter your CSS here'
-          rows={20}
-          cols={30}
-          style={{ width: '100%', marginBottom: '10px' }}
+          rows={10}
+          style={{ width: '100%', marginBottom: '10px', overflow: 'auto' }}
           value={css[selectedInput] || ''}
           onChange={handleCssChange}
         />

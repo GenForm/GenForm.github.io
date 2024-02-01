@@ -7,7 +7,7 @@ const EndPresentation = () => {
 
   return (
     <div>
-      <Popup trigger={<button className="button" style={{ background: "#FFFFFF", border: "none", color: "#FFFFFF" }}> Fin </button>} modal>
+      <Popup trigger={<button className="button" style={{ background: "#FFFFFF", border: "none", color: "#FFFFFF", padding: '0px', margin: '0px' }}> Fin </button>} modal>
         {close => (
           <div className="modal">
             <div className="actions">
