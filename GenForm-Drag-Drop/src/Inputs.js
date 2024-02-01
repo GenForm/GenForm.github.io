@@ -139,7 +139,7 @@ const Inputs = ({ id, name, value, modifyJson }) => {
             inputName.length > 0 ? 'Enter ' + inputName + ' value' : ''
           }
           required
-          pattern={(inputName === 'required' || inputName === 'disabled') ? '^(true|false)$' : '^[A-Za-z0-9 ]+$'}
+          pattern={(inputName === 'required' || inputName === 'disabled') ? '^(true|false)$' : '^[A-Za-z0-9 \-\_]+$'}
         />
       )
     }
