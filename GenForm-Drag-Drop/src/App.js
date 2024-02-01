@@ -109,7 +109,7 @@ function App() {
     <div>
       <div style={{ display: 'flex', alignItems: 'center' }}>
         <a href='https://www.npmjs.com/search?q=%40genform' target='_blank' rel='noreferrer' style={{ height: '64px' }}><img src='logo192.png' alt='Logo GenForm - Lien vers NPM' style={{ height: 'inherit' }}></img></a>
-        <h1 className="title">GenForm</h1>
+        <h1 className="title">GenView</h1>
         <a href='https://github.com/GenForm/GenForm' target='_blank' rel='noreferrer' style={{ height: '64px' }}><img src='github.png' alt='Logo GitHub - Lien vers GitHub' style={{ height: 'inherit' }}></img></a>
       </div>
       <div className="App" style={{ display: 'flex' }}>
